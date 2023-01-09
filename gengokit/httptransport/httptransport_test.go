@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/douchunrong/truss/gengokit/gentesthelper"
-	"github.com/douchunrong/truss/svcdef"
+	"github.com/douchunrong/truss_gin/gengokit/gentesthelper"
+	"github.com/douchunrong/truss_gin/svcdef"
 )
 
 var (
@@ -28,7 +28,7 @@ func TestNewMethod(t *testing.T) {
 		// General package
 		package general;
 
-		import "github.com/douchunrong/truss/deftree/googlethirdparty/annotations.proto";
+		import "github.com/douchunrong/truss_gin/deftree/googlethirdparty/annotations.proto";
 
 		message SumRequest {
 			int64 a = 1;

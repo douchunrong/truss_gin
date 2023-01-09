@@ -1,4 +1,4 @@
-# Makefile for Truss.
+# Makefile for truss_gin.
 #
 SHA := $(shell git rev-parse --short=10 HEAD)
 
@@ -19,7 +19,7 @@ gobindata:
 	go generate github.com/douchunrong/truss_gin/gengokit/template
 
 # Install truss
-truss: gobindata
+truss_gin: gobindata
 	go install -ldflags '-X "main.version=$(SHA)" -X "main.date=$(VERSION_DATE)"' github.com/douchunrong/truss_gin/cmd/truss
 
 # Run the go tests and the truss integration tests

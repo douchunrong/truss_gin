@@ -10,7 +10,7 @@ We will build a simple service based on [echo.proto](./_example/echo.proto)
   If everything passes you’re good to go.
   If you see any complaints about packages not installed, `go get` those packages
   If you encounter any other issues - ask the developers
-3. To update to newer version of truss, do `git pull`, or `go get -u github.com/douchunrong/truss/...` truss again.
+3. To update to newer version of truss, do `git pull`, or `go get -u github.com/douchunrong/truss_gin/...` truss again.
 
 # Writing your first service
 
@@ -36,7 +36,7 @@ message LouderRequest {
 The RPC calls can be annotated with HTTP transport option (endpoint name and type of request). For this we must import the google annotations library.
 
 ```
-import "github.com/douchunrong/truss/deftree/googlethirdparty/annotations.proto";
+import "github.com/douchunrong/truss_gin/deftree/googlethirdparty/annotations.proto";
 
 service Echo {
 ...
@@ -89,7 +89,7 @@ From the top down, within `echo-service/`:
 
 If you try to build and run your service now, it will respond with empty messages. There is no business logic yet! We shall add it in the next step.
 
-You can safely modify only the files in handlers/. Changes to any other files will be lost the next time you re-generate the service with truss.
+You can safely modify only the files in handlers/. Changes to any other files will be lost the next time you re-generate the service with truss_gin.
 
 ## Implement business logic
 

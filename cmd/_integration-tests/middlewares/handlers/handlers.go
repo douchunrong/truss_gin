@@ -3,7 +3,7 @@ package handlers
 import (
 	"context"
 
-	pb "github.com/douchunrong/truss/cmd/_integration-tests/middlewares/proto"
+	pb "github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/proto"
 )
 
 // NewService returns a naïve, stateless implementation of Service.

@@ -1,4 +1,4 @@
-package truss
+package truss_gin
 
 import "io"
 

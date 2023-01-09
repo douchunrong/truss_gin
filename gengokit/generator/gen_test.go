@@ -11,11 +11,11 @@ import (
 
 	log "github.com/sirupsen/logrus"
 
-	"github.com/douchunrong/truss/gengokit"
-	templateFileAssets "github.com/douchunrong/truss/gengokit/template"
-	"github.com/douchunrong/truss/svcdef"
+	"github.com/douchunrong/truss_gin/gengokit"
+	templateFileAssets "github.com/douchunrong/truss_gin/gengokit/template"
+	"github.com/douchunrong/truss_gin/svcdef"
 
-	"github.com/douchunrong/truss/gengokit/gentesthelper"
+	"github.com/douchunrong/truss_gin/gengokit/gentesthelper"
 )
 
 var gopath []string
@@ -49,7 +49,7 @@ func TestApplyTemplateFromPath(t *testing.T) {
 		// General package
 		package general;
 
-		import "github.com/douchunrong/truss/deftree/googlethirdparty/annotations.proto";
+		import "github.com/douchunrong/truss_gin/deftree/googlethirdparty/annotations.proto";
 
 		// RequestMessage is so foo
 		message RequestMessage {
@@ -79,7 +79,7 @@ func TestApplyTemplateFromPath(t *testing.T) {
 
 	conf := gengokit.Config{
 		GoPackage: "github.com/douchunrong/truss",
-		PBPackage: "github.com/douchunrong/truss/gengokit/general-service",
+		PBPackage: "github.com/douchunrong/truss_gin/gengokit/general-service",
 	}
 
 	te, err := gengokit.NewData(sd, conf)
@@ -132,8 +132,8 @@ func stringToTemplateExector(def, importPath string) (*gengokit.Data, error) {
 }
 
 func TestAllTemplates(t *testing.T) {
-	const goPackage = "github.com/douchunrong/truss/gengokit"
-	const goPBPackage = "github.com/douchunrong/truss/gengokit/general-service"
+	const goPackage = "github.com/douchunrong/truss_gin/gengokit"
+	const goPBPackage = "github.com/douchunrong/truss_gin/gengokit/general-service"
 
 	const def = `
 		syntax = "proto3";
@@ -141,7 +141,7 @@ func TestAllTemplates(t *testing.T) {
 		// General package
 		package general;
 
-		import "github.com/douchunrong/truss/deftree/googlethirdparty/annotations.proto";
+		import "github.com/douchunrong/truss_gin/deftree/googlethirdparty/annotations.proto";
 
 		// RequestMessage is so foo
 		message RequestMessage {
@@ -171,7 +171,7 @@ func TestAllTemplates(t *testing.T) {
 		// General package
 		package general;
 
-		import "github.com/douchunrong/truss/deftree/googlethirdparty/annotations.proto";
+		import "github.com/douchunrong/truss_gin/deftree/googlethirdparty/annotations.proto";
 
 		// RequestMessage is so foo
 		message RequestMessage {
@@ -213,8 +213,8 @@ func TestAllTemplates(t *testing.T) {
 	}
 
 	conf := gengokit.Config{
-		GoPackage: "github.com/douchunrong/truss/gengokit",
-		PBPackage: "github.com/douchunrong/truss/gengokit/general-service",
+		GoPackage: "github.com/douchunrong/truss_gin/gengokit",
+		PBPackage: "github.com/douchunrong/truss_gin/gengokit/general-service",
 	}
 
 	data1, err := gengokit.NewData(sd1, conf)

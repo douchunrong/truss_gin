@@ -14,13 +14,13 @@ Whenever templates are modified, the templates must be recompiled to binary,
 this is done with:
 
 ```
-$ go generate github.com/douchunrong/truss/...
+$ go generate github.com/douchunrong/truss_gin/...
 ```
 
 Then to build truss and its protoc plugin to your $GOPATH/bin directory:
 
 ```
-$ go install github.com/douchunrong/truss/...
+$ go install github.com/douchunrong/truss_gin/...
 ```
 
 Both can be done from the Makefile in the root directory:
