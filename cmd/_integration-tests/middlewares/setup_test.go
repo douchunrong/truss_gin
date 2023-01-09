@@ -4,9 +4,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/douchunrong/truss/cmd/_integration-tests/middlewares/middlewarestest-service/handlers"
-	svc "github.com/douchunrong/truss/cmd/_integration-tests/middlewares/middlewarestest-service/svc"
-	pb "github.com/douchunrong/truss/cmd/_integration-tests/middlewares/proto"
+	"github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/middlewarestest-service/handlers"
+	svc "github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/middlewarestest-service/svc"
+	pb "github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/proto"
 )
 
 var middlewareEndpoints svc.Endpoints

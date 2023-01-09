@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/douchunrong/truss/truss/execprotoc"
+	"github.com/douchunrong/truss_gin/truss/execprotoc"
 	"github.com/pkg/errors"
 )
 

@@ -11,7 +11,7 @@ import (
 
 	gogen "github.com/gogo/protobuf/protoc-gen-gogo/generator"
 
-	"github.com/douchunrong/truss/svcdef/svcparse"
+	"github.com/douchunrong/truss_gin/svcdef/svcparse"
 )
 
 type optional interface {

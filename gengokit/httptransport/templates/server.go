@@ -117,16 +117,16 @@ func MakeHTTPHandler(endpoints Endpoints, responseEncoder httptransport.EncodeRe
 		}
 		serverOptions = append(serverOptions, options...)
 	{{- end }}
-	m := mux.NewRouter()
+    m := gin.Default()
 
-	{{range $method := .HTTPHelper.Methods}}
+    {{range $method := .HTTPHelper.Methods}}
 		{{range $binding := $method.Bindings}}
-			m.Methods("{{$binding.Verb | ToUpper}}").Path("{{$binding.PathTemplate}}").Handler(httptransport.NewServer(
+			m.{{$binding.Verb | ToUpper}}("{{$binding.PathTemplate}}",gin.WrapH(httptransport.NewServer(
 				endpoints.{{$method.Name}}Endpoint,
 				DecodeHTTP{{$binding.Label}}Request,
 				responseEncoder,
 				serverOptions...,
-			))
+			)))
 		{{- end}}
 	{{- end}}
 	return m
