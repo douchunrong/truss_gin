@@ -13,9 +13,9 @@ RUN apk update && apk upgrade && apk add --no-cache protobuf git
 
 RUN go version && go get -u -v github.com/gogo/protobuf/protoc-gen-gogofaster
 
-COPY ./ $GOPATH/src/github.com/douchunrong/truss_gin
+COPY ./ $GOPATH/src/github.com/douchunrong/truss
 
-RUN go install -v github.com/douchunrong/truss_gin/...
+RUN go install -v github.com/douchunrong/truss/...
 
 WORKDIR  /go/src/protos
 

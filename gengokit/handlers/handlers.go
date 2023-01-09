@@ -16,9 +16,9 @@ import (
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/douchunrong/truss_gin/gengokit"
-	"github.com/douchunrong/truss_gin/gengokit/handlers/templates"
-	"github.com/douchunrong/truss_gin/svcdef"
+	"github.com/douchunrong/truss/gengokit"
+	"github.com/douchunrong/truss/gengokit/handlers/templates"
+	"github.com/douchunrong/truss/svcdef"
 )
 
 // NewService is an exported func that creates a new service
@@ -28,7 +28,7 @@ const ignoredFunc = "NewService"
 // ServerHadlerPath is the relative path to the server handler template file
 const ServerHandlerPath = "handlers/handlers.gotemplate"
 
-// New returns a truss_gin.Renderable capable of updating server handlers.
+// New returns a truss.Renderable capable of updating server handlers.
 // New should be passed the previous version of the server handler to parse.
 func New(svc *svcdef.Service, prev io.Reader) (gengokit.Renderable, error) {
 	var h handler

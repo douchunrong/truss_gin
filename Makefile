@@ -1,4 +1,4 @@
-# Makefile for truss_gin.
+# Makefile for Truss.
 #
 SHA := $(shell git rev-parse --short=10 HEAD)
 
@@ -6,21 +6,21 @@ MAKEFILE_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 VERSION_DATE := $(shell $(MAKEFILE_PATH)/commit_date.sh)
 
 # Build native Truss by default.
-default: truss_gin
+default: truss
 
 dependencies:
-	go get -u -d github.com/gogo/protobuf/protoc-gen-gogo@21df5aa0e680850681b8643f0024f92d3b09930c
-	go get -u -d github.com/gogo/protobuf/protoc-gen-gogofaster@21df5aa0e680850681b8643f0024f92d3b09930c
-	go get -u -d github.com/gogo/protobuf/proto@21df5aa0e680850681b8643f0024f92d3b09930c
-	go get -u -d github.com/kevinburke/go-bindata/go-bindata
+	go get -u github.com/gogo/protobuf/protoc-gen-gogo@21df5aa0e680850681b8643f0024f92d3b09930c
+	go get -u github.com/gogo/protobuf/protoc-gen-gogofaster@21df5aa0e680850681b8643f0024f92d3b09930c
+	go get -u github.com/gogo/protobuf/proto@21df5aa0e680850681b8643f0024f92d3b09930c
+	go get -u github.com/kevinburke/go-bindata/go-bindata
 
 # Generate go files containing the all template files in []byte form
 gobindata:
-	go generate github.com/douchunrong/truss_gin/gengokit/template
+	go generate github.com/douchunrong/truss/gengokit/template
 
 # Install truss
-truss_gin: gobindata
-	go install -ldflags '-X "main.version=$(SHA)" -X "main.date=$(VERSION_DATE)"' github.com/douchunrong/truss_gin/cmd/truss
+truss: gobindata
+	go install -ldflags '-X "main.version=$(SHA)" -X "main.date=$(VERSION_DATE)"' github.com/douchunrong/truss/cmd/truss
 
 # Run the go tests and the truss integration tests
 test: test-go test-integration

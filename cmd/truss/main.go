@@ -15,14 +15,14 @@ import (
 	log "github.com/sirupsen/logrus"
 	flag "github.com/spf13/pflag"
 
-	"github.com/douchunrong/truss_gin"
-	"github.com/douchunrong/truss_gin/truss/execprotoc"
-	"github.com/douchunrong/truss_gin/truss/getstarted"
-	"github.com/douchunrong/truss_gin/truss/parsesvcname"
+	"github.com/douchunrong/truss/truss"
+	"github.com/douchunrong/truss/truss/execprotoc"
+	"github.com/douchunrong/truss/truss/getstarted"
+	"github.com/douchunrong/truss/truss/parsesvcname"
 
-	ggkconf "github.com/douchunrong/truss_gin/gengokit"
-	gengokit "github.com/douchunrong/truss_gin/gengokit/generator"
-	"github.com/douchunrong/truss_gin/svcdef"
+	ggkconf "github.com/douchunrong/truss/gengokit"
+	gengokit "github.com/douchunrong/truss/gengokit/generator"
+	"github.com/douchunrong/truss/svcdef"
 )
 
 var (
@@ -129,10 +129,10 @@ func main() {
 	cleanupOldFiles(cfg.ServicePath, strings.ToLower(sd.Service.Name))
 }
 
-// parseInput constructs a *truss_gin.Config with all values needed to parse
+// parseInput constructs a *truss.Config with all values needed to parse
 // service definition files.
-func parseInput() (*truss_gin.Config, error) {
-	var cfg truss_gin.Config
+func parseInput() (*truss.Config, error) {
+	var cfg truss.Config
 
 	// GOPATH
 	cfg.GoPath = filepath.SplitList(os.Getenv("GOPATH"))
@@ -242,7 +242,7 @@ func parseSVCOut(svcOut string, GOPATH string) (string, error) {
 
 // parseServiceDefinition returns a svcdef which contains all necessary
 // information for generating a truss service.
-func parseServiceDefinition(cfg *truss_gin.Config) (*svcdef.Svcdef, error) {
+func parseServiceDefinition(cfg *truss.Config) (*svcdef.Svcdef, error) {
 	protoDefPaths := cfg.DefPaths
 	// Create the ServicePath so the .pb.go files may be place within it
 	if cfg.PrevGen == nil {
@@ -281,7 +281,7 @@ func parseServiceDefinition(cfg *truss_gin.Config) (*svcdef.Svcdef, error) {
 
 // generateCode returns a map[string]io.Reader that represents a gokit
 // service
-func generateCode(cfg *truss_gin.Config, sd *svcdef.Svcdef) (map[string]io.Reader, error) {
+func generateCode(cfg *truss.Config, sd *svcdef.Svcdef) (map[string]io.Reader, error) {
 	conf := ggkconf.Config{
 		PBPackage:     cfg.PBPackage,
 		GoPackage:     cfg.ServicePackage,
@@ -476,7 +476,7 @@ Do you want to automatically run 'make' and rerun command:
 const trussImportPath = "github.com/douchunrong/truss"
 
 // makeAndRunTruss installs truss by running make in trussImportPath.
-// It then passes through args to newly installed truss_gin.
+// It then passes through args to newly installed truss.
 func makeAndRunTruss(args []string) error {
 	p, err := build.Default.Import(trussImportPath, "", build.FindOnly)
 	if err != nil {
@@ -489,6 +489,6 @@ func makeAndRunTruss(args []string) error {
 		return errors.Wrap(err, "could not run make in truss directory")
 	}
 	truss := exec.Command("truss", args[1:]...)
-	truss_gin.Stdin, truss_gin.Stdout, truss_gin.Stderr = os.Stdin, os.Stdout, os.Stderr
-	return truss_gin.Run()
+	truss.Stdin, truss.Stdout, truss.Stderr = os.Stdin, os.Stdout, os.Stderr
+	return truss.Run()
 }

@@ -3,7 +3,7 @@ OK_COLOR=\e[38;5;118m
 UNDER=\n________________________________________________________________________________\n
 END_COLOR_LINE=$(UNDER)$(NO_COLOR)
 
-TRUSS_MSG=\n$(OK_COLOR)Running truss_gin...$(END_COLOR_LINE)
+TRUSS_MSG=\n$(OK_COLOR)Running Truss...$(END_COLOR_LINE)
 
 TEST_RUNNING_MSG=\n$(OK_COLOR)Running middlewares tests:$(END_COLOR_LINE)
 
@@ -12,7 +12,7 @@ all: test
 test:
 	@echo -e '$(TRUSS_MSG)'
 	mkdir -p middlewarestest-service
-	truss --svcout github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/middlewarestest-service proto/middlewares-test.proto
+	truss --svcout github.com/douchunrong/truss/cmd/_integration-tests/middlewares/middlewarestest-service proto/middlewares-test.proto
 	cp -r handlers middlewarestest-service
 	@echo -e '$(TEST_RUNNING_MSG)'
 	go test -v

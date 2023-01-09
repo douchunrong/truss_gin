@@ -3,11 +3,11 @@ OK_COLOR=\e[38;5;118m
 UNDER=\n________________________________________________________________________________\n
 END_COLOR_LINE=$(UNDER)$(NO_COLOR)
 
-TRUSS_MSG=\n$(OK_COLOR)Running truss_gin...$(END_COLOR_LINE)
+TRUSS_MSG=\n$(OK_COLOR)Running Truss...$(END_COLOR_LINE)
 
 TEST_RUNNING_MSG=\n$(OK_COLOR)Running transport tests:$(END_COLOR_LINE)
 
-TRUSS_AGAIN_MSG=\n$(OK_COLOR)Running truss_gin... again, to test regeneration$(END_COLOR_LINE)
+TRUSS_AGAIN_MSG=\n$(OK_COLOR)Running Truss... again, to test regeneration$(END_COLOR_LINE)
 
 # make test match=test_to_run
 match := $(match)
@@ -21,7 +21,7 @@ all: test
 setup:
 	@echo -e '$(TRUSS_MSG)'
 	mkdir -p transportpermutations-service
-	truss -v --svcout github.com/douchunrong/truss_gin/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
+	truss -v --svcout github.com/douchunrong/truss/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
 	cp -r handlers transportpermutations-service
 
 test: setup
@@ -29,7 +29,7 @@ test: setup
 	go test -run=$(match) -v
 	@echo -e '$(TRUSS_AGAIN_MSG)'
 	mkdir -p transportpermutations-service
-	truss -v --svcout github.com/douchunrong/truss_gin/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
+	truss -v --svcout github.com/douchunrong/truss/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
 	@echo -e '$(TEST_RUNNING_MSG)'
 	go test -run=$(match) -v
 	$(MAKE) clean
@@ -43,9 +43,9 @@ bench: setup
 # handlers/handlers.go
 newrpc:
 	mkdir -p transportpermutations-service
-	truss --svcout github.com/douchunrong/truss_gin/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
+	truss --svcout github.com/douchunrong/truss/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
 	cp -r handlers transportpermutations-service
-	truss --svcout github.com/douchunrong/truss_gin/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
+	truss --svcout github.com/douchunrong/truss/cmd/_integration-tests/transport/transportpermutations-service proto/transport-test.proto
 	cp -r transportpermutations-service/handlers/handlers.go handlers
 
 clean:
