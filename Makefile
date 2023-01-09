@@ -6,7 +6,7 @@ MAKEFILE_PATH := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 VERSION_DATE := $(shell $(MAKEFILE_PATH)/commit_date.sh)
 
 # Build native Truss by default.
-default: truss
+default: truss-gin
 
 dependencies:
 	go get -u github.com/gogo/protobuf/protoc-gen-gogo@21df5aa0e680850681b8643f0024f92d3b09930c
@@ -19,8 +19,8 @@ gobindata:
 	go generate github.com/douchunrong/truss_gin/gengokit/template
 
 # Install truss
-truss: gobindata
-	go install -ldflags '-X "main.version=$(SHA)" -X "main.date=$(VERSION_DATE)"' github.com/douchunrong/truss_gin/cmd/truss
+truss-gin: gobindata
+	go install -ldflags '-X "main.version=$(SHA)" -X "main.date=$(VERSION_DATE)"' github.com/douchunrong/truss_gin/cmd/truss_gin
 
 # Run the go tests and the truss integration tests
 test: test-go test-integration

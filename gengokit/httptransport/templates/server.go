@@ -83,6 +83,7 @@ import (
 
 	"context"
 
+    "github.com/gin-gonic/gin"
 	"github.com/gorilla/mux"
 	"github.com/pkg/errors"
 	httptransport "github.com/go-kit/kit/transport/http"

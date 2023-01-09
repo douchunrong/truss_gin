@@ -4,8 +4,6 @@ const Hook = `
 package handlers
 
 import (
-	"context"
-
 	"fmt"
 	"{{.ImportPath -}} /svc"
 	"os"
