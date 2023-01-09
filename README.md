@@ -1,5 +1,5 @@
 
-# Truss ![Build Status](https://github.com/douchunrong/truss/workflows/Go/badge.svg?branch=master)
+# Truss ![Build Status](https://github.com/douchunrong/truss_gin/workflows/Go/badge.svg?branch=master)
 
 ## Fork By
 
@@ -24,15 +24,15 @@ Otherwise [install from source.](https://github.com/google/protobuf)
 1. Install Truss with
 
 	```
-	go get -u -d github.com/douchunrong/truss
-	cd $GOPATH/src/github.com/douchunrong/truss
+	go get -u -d github.com/douchunrong/truss_gin
+	cd $GOPATH/src/github.com/douchunrong/truss_gin
 	make dependencies
 	make
 	```
 	On Windows, do the following instead:
 	```
-	go get -u -d github.com/douchunrong/truss
-	cd %GOPATH%/src/github.com/douchunrong/truss
+	go get -u -d github.com/douchunrong/truss_gin
+	cd %GOPATH%/src/github.com/douchunrong/truss_gin
 	wininstall.bat
 	```
 

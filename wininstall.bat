@@ -33,6 +33,6 @@ go get -u github.com/gogo/protobuf/proto@21df5aa0e680850681b8643f0024f92d3b09930
 :: go get github.com/jteeuwen/go-bindata/...
 go get -u github.com/kevinburke/go-bindata/go-bindata
 
-go generate github.com/douchunrong/truss/gengokit/template
-go install -ldflags "-X 'main.version=%SHA%' -X 'main.date=%HEAD_DATE%'" github.com/douchunrong/truss/cmd/truss
+go generate github.com/douchunrong/truss_gin/gengokit/template
+go install -ldflags "-X 'main.version=%SHA%' -X 'main.date=%HEAD_DATE%'" github.com/douchunrong/truss_gin/cmd/truss
 @ECHO OFF

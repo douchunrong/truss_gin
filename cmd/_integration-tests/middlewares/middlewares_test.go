@@ -6,7 +6,7 @@ import (
 
 	"context"
 
-	pb "github.com/douchunrong/truss/cmd/_integration-tests/middlewares/proto"
+	pb "github.com/douchunrong/truss_gin/cmd/_integration-tests/middlewares/proto"
 )
 
 func TestAlwaysWrapped(t *testing.T) {

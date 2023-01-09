@@ -15,14 +15,14 @@ import (
 	log "github.com/sirupsen/logrus"
 	flag "github.com/spf13/pflag"
 
-	"github.com/douchunrong/truss/truss"
-	"github.com/douchunrong/truss/truss/execprotoc"
-	"github.com/douchunrong/truss/truss/getstarted"
-	"github.com/douchunrong/truss/truss/parsesvcname"
+	"github.com/douchunrong/truss_gin/truss"
+	"github.com/douchunrong/truss_gin/truss/execprotoc"
+	"github.com/douchunrong/truss_gin/truss/getstarted"
+	"github.com/douchunrong/truss_gin/truss/parsesvcname"
 
-	ggkconf "github.com/douchunrong/truss/gengokit"
-	gengokit "github.com/douchunrong/truss/gengokit/generator"
-	"github.com/douchunrong/truss/svcdef"
+	ggkconf "github.com/douchunrong/truss_gin/gengokit"
+	gengokit "github.com/douchunrong/truss_gin/gengokit/generator"
+	"github.com/douchunrong/truss_gin/svcdef"
 )
 
 var (
@@ -473,7 +473,7 @@ Do you want to automatically run 'make' and rerun command:
 	return false
 }
 
-const trussImportPath = "github.com/douchunrong/truss"
+const trussImportPath = "github.com/douchunrong/truss_gin"
 
 // makeAndRunTruss installs truss by running make in trussImportPath.
 // It then passes through args to newly installed truss.

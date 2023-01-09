@@ -14,19 +14,19 @@ Whenever templates are modified, the templates must be recompiled to binary,
 this is done with:
 
 ```
-$ go generate github.com/douchunrong/truss/...
+$ go generate github.com/douchunrong/truss_gin/...
 ```
 
 Then to build truss and its protoc plugin to your $GOPATH/bin directory:
 
 ```
-$ go install github.com/douchunrong/truss/...
+$ go install github.com/douchunrong/truss_gin/...
 ```
 
 Both can be done from the Makefile in the root directory:
 
 ```
-$ cd $GOPATH/github.com/douchunrong/truss
+$ cd $GOPATH/github.com/douchunrong/truss_gin
 $ make
 ```
 
@@ -36,7 +36,7 @@ Before submitting a pull request always run tests that cover modified code.
 Also build truss and run truss's integration test. This can be done by
 
 ```
-$ cd $GOPATH/src/github.com/douchunrong/truss
+$ cd $GOPATH/src/github.com/douchunrong/truss_gin
 $ make
 $ make test
 # If the tests failed and you want to remove generated code
