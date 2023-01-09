@@ -5,6 +5,10 @@
 
 https://github.com/metaverse/truss
 
+## 新增修改
+- 修改路由为 gin router
+- 新增 context 接口
+
 Truss handles the painful parts of services, freeing you to focus on the
 business logic.
 
